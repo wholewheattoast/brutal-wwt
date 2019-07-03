@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{sb_display_name}}</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="{{sb_display_name}} sketchbook">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="http://www.flickr.com/photos/wholewheattoast/"  rel="me">
+    <link href="https://twitter.com/wholewheattoast"            rel="me">
+    <link href="https://github.com/wholewheattoast"             rel="me">
+    <link href="http://instagram.com/wholewheattoast"           rel="me">
+    <link href="http://pinboard.in/u:wholewheattoast"           rel="me">
+    <link href="http://wholewheattoast.tumblr.com"              rel="me">
+
+    <link href="/css/screen.css" media="screen" rel="stylesheet" type="text/css" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="/image/favicon.ico">
+  </head>
+
+  <body class="main">
+    <nav class="global-nav">
+      <a href="/toc.html">wholewheattoast</a> | <a href="/sketchbooks.html">sketchbooks</a>
+    </nav>
+
+    <article class="item-grid">
+      <header class="item-header">
+        <h1>{{sb_display_name}}</h1>
+
+        {{#metadata}}
+        <p>{{date}}</p>
+        {{/metadata}}
+      </header>
+
+      {{#sb_spreads}}
+        <div class="item-panel">
+          <a href="/sketchbooks/{{sb_url_safe_name}}/{{sb_url_safe_name}}-{{spread}}.html"
+            title="{{sb_display_name}} {{spread}}">
+            <img
+              src="/{{image_dir}}/{{sb_url_safe_name}}-{{spread}}-thumb.jpg"
+              title="{{sb_display_name}} {{spread}}"
+              alt="Link to {{sb_display_name}} {{spread}}"
+            />
+          </a>
+        </div>
+      {{/sb_spreads}}
+    </article>
+  </body>
+</html>
+

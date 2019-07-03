@@ -1,15 +1,69 @@
-body {
-
-}
+body { font-size: 16px; }
 
 h1, h2, h3, h4, h5 { font-family: sans-serif; }
 
-img { width: 100%; }
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+}
+
+table th,
+table, td {
+    text-align: left;
+}
+
+table .number,
+table .date {
+    text-align: right;
+}
+
+/* buttons */
+.btn {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 0;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.btn-paypall:hover { color: #fff; }
+.btn-paypall { background-color: #ffd390; }
 
 /* TODO base container width on max paragraph length */
+/* content containers */
 .main {
-  margin: 4em auto;
-  width: 50%;
+  margin: 1em auto;
+  width: 66%;
+  font-size: 2em;
+}
+
+.sketchbooks {
+    margin: 1em auto;
+    width: 90%;
+}
+
+.sketchbook-page-container {
+  margin: 1em auto;
+  width: 66%;
+}
+
+/* helpers */
+.bare-link {
+  color: black;
+  text-decoration: none;
 }
 
 .big-text {
@@ -17,30 +71,182 @@ img { width: 100%; }
   line-height: 1.25;
 }
 
+.tight-bottom { margin-bottom: 0; }
 
-.front-page-nav ul {
-	display: flex;
-	flex-direction: row;
+/* global navigation */
+.global-nav,
+.global-nav a,
+.global-nav a:visited {
+    color: black;
+    font-family: sans-serif;
 }
 
-.front-page-nav li {
-	list-style: none;
-	flex: 1;
+/* front page */
+.front-page {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
 }
 
-.front-page-nav-newer {
-	 align-self: flex-end;
-	 text-align: right
+.front-page-navigation { align-self: flex-end; }
+
+.front-page-navigation a,
+.front-page-navigation a:hover,
+.front-page-navigation a:visited { color: #fff; }
+
+.front-page-navigation ul {
+    padding-right: 1em;
+    padding-left: .75em;
+    background: black;
 }
+
 .front-page-item {
-	border-radius: 4px;
-	max-width: 100%;
-	margin: 2rem auto 2.5rem;
-	padding: 2rem;
+    flex: 1;
+    margin: 4em auto;
+    width: 50vh;
 }
 
-.front-page-item img {
-	display: block;
-	margin: 0 auto;
-	width: 50%;
+@media (max-width: 640px) {
+    .front-page-item {
+        margin: 1em auto;
+    }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+    .front-page-item {
+        margin: 2em auto;
+    }
+}
+@media (max-height: 384px) {
+    .front-page-item {
+        width: 42vh;
+    }
+}
+@media (max-height: 480px) {
+    .front-page-item {
+        width: 46vh;
+    }
+}
+@media (max-height: 800px) {
+    .front-page-item {
+        margin: 1em auto 0;
+    }
+}
+
+/* Sketchbooks */
+.sketchbooks { margin-top: 1.25rem; }
+.sketchbook-panel p { margin: 0; }
+
+/*
+  TODO after updating to grid layout remove this
+  this is for sketchbooks listed as a vertical list rather then grid
+ */
+.sketchbook-list li { margin-bottom: 1.5rem; }
+
+.sb-index h2 { text-transform: capitalize; }
+
+.sketchbook-page h2 {
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.sketchbook-page h3 { font-size: 1em; }
+.sketchbook-page
+
+.sketchbook-page .inline-dl { font-size: .85rem; }
+.sketchbook-page .inline-dl dd { margin: 0 0 .5rem 6rem; }
+.sketchbook-page .inline-dl dt {
+  font-weight: normal;
+  margin: 0;
+  width: 2em;
+}
+
+.sb-nav {
+  font-size: 1em;
+  position: fixed;
+  right: 2em;
+  top: calc(50% - 4em);
+}
+
+.sb-nav a { color: black; }
+
+.sb-nav li { list-style: none; }
+
+/* grid stuff */
+/* Use Item Grid for zines, drawings, etc... */
+.item-grid {
+  display: grid;
+  grid-gap: 20px;
+}
+
+/* if no grid suuprt */
+.item-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-grid {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.item-header { margin-bottom: 0; }
+
+.item-header,
+.item-footer {
+  flex: 0 1 100%;
+  grid-column: 1 / -1;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.item-panel {
+  /* needed for the flex layout */
+  flex: 1 1 200px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+@supports(display: grid ) {
+  .item-grid { margin: 0; }
+
+  .item-header,
+  .item-footer,
+  .item-panel {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .item-panel { grid-auto-rows: minmax(150px, auto); }
+}
+
+/* flex fallback where no grid support */
+.sketchbook-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sketchbook-panel {
+  /* needed for the flex layout */
+  flex: 1 1 200px;
+  padding-right: 10px;
+}
+
+@supports(display: grid ) {
+  .sketchbook-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, 10%);
+    grid-template-rows: auto;
+    margin: 0;
+  }
+
+  .sketchbook-panel { padding-right: 0; }
+}
+
+.sketchbook-header,
+.sketchbook-footer {
+  flex: 0 1 100%;
+  grid-column: 1 / -1;
 }
