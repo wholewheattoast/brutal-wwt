@@ -22,8 +22,10 @@ from toast_tools import (
 # - add metadata to images dir
 THE_BIG_LIST = [
     "24-inch-curved",
+    "active-excluder",
     "a-skeleter",
     "boiled-oysters",
+    "baba-lasagna",
     "brainerd",
     "garbage-filter",
     "hospitality",
@@ -34,6 +36,7 @@ THE_BIG_LIST = [
     "pretty-lady",
     "reset-counter",
     "sausage-barrier",
+    "smiling-dolphin",
     "supernormal",
 ]
 

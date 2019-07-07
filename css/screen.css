@@ -2,6 +2,18 @@ body { font-size: 16px; }
 
 h1, h2, h3, h4, h5 { font-family: sans-serif; }
 
+a,
+a:visited {
+  color: black;
+  transition: color .25s;
+}
+
+a:hover,
+a:focus {
+  color: #176abe;
+  text-decoration: none;
+}
+
 img {
   display: block;
   height: auto;
@@ -9,18 +21,18 @@ img {
 }
 
 table {
-    width: 100%;
-    max-width: 100%;
+  width: 100%;
+  max-width: 100%;
 }
 
 table th,
 table, td {
-    text-align: left;
+  text-align: left;
 }
 
 table .number,
 table .date {
-    text-align: right;
+  text-align: right;
 }
 
 /* buttons */
@@ -43,16 +55,64 @@ table .date {
 .btn-paypall { background-color: #ffd390; }
 
 /* TODO base container width on max paragraph length */
-/* content containers */
-.main {
+
+/* toc page */
+.toc-page {
+  /*background: url("/image/frontpage/2015/fp-2015-08-02.svg") no-repeat center/70%;*/
+  background-color: #fcf334;
+  /*height: 90vh;*/
+  font-size: 2em;
   margin: 1em auto;
   width: 66%;
+}
+
+.main {
+  background-color: #f5fffa;
   font-size: 2em;
+  margin: 1em auto;
+  width: 66%;
+}
+
+.toc-page h1 {
+  font-size: 2.5em;
+  width: 24rem;
+  line-height: 4rem;
+  margin-bottom: 16px;
+  padding: .25em;
+}
+
+.toc-page ul {
+  background: yellow;
+  margin-left: 8px;
+}
+
+.toc-page nav {
+  width: 8.5em;
+}
+
+.toc-page a:hover,
+.toc-page a:focus {
+  color: black;
+}
+
+.toc-page ul {
+  margin-top: 0;
+  padding-left: 14px;
+}
+
+.toc-page nav li {
+  list-style: none;
+}
+
+.toc-page .other-stuff  {
+  width: 15em;
 }
 
 .sketchbooks {
-    margin: 1em auto;
-    width: 90%;
+  background-color: #fffafa;
+  font-size: 2em;
+  margin: 1em auto;
+  width: 90%;
 }
 
 .sketchbook-page-container {
@@ -66,9 +126,19 @@ table .date {
   text-decoration: none;
 }
 
+.bare-link:hover,
+.bare-link:focus {
+  color: black;
+}
+
 .big-text {
   font-size: 2em;
   line-height: 1.25;
+}
+
+.list-unstyled {
+  list-style: none;
+  padding-left: 0;
 }
 
 .tight-bottom { margin-bottom: 0; }
@@ -105,12 +175,38 @@ table .date {
     flex: 1;
     margin: 4em auto;
     width: 50vh;
+    height: 100vh;
+}
+
+/* Frpntpage archive */
+.frontpage-archive { margin: 0; }
+
+.frontpage-archive .global-nav {
+  font-size: 2em;
+  margin-left: 5%;
+  margin-top: 1.25rem;
+}
+
+.frontpage-archive h2 {
+  font-size: 2em;
+  margin-left: 5%;
+}
+
+
+.frontpage-archive .front-page-item {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+}
+
+.frontpage-archive .front-page-item img {
+  width: 50vh;
 }
 
 @media (max-width: 640px) {
-    .front-page-item {
-        margin: 1em auto;
-    }
+    .front-page-item { margin: 1em auto; }
 }
 @media (min-width: 641px) and (max-width: 1024px) {
     .front-page-item {
@@ -165,12 +261,13 @@ table .date {
   font-size: 1em;
   position: fixed;
   right: 2em;
-  top: calc(50% - 4em);
 }
 
-.sb-nav a { color: black; }
 
-.sb-nav li { list-style: none; }
+.sb-nav li {
+  list-style: none;
+  margin-bottom: .5em;
+}
 
 /* grid stuff */
 /* Use Item Grid for zines, drawings, etc... */
@@ -249,4 +346,104 @@ table .date {
 .sketchbook-footer {
   flex: 0 1 100%;
   grid-column: 1 / -1;
+}
+/* shop grid */
+/* TODO could i just use the item grid here? */
+/* flex fallback where no grid support */
+.shop-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shop-panel {
+  /* needed for the flex layout */
+  flex: 1 1 200px;
+  padding-right: 10px;
+}
+
+@supports(display: grid) {
+  .shop-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, 15%);
+    grid-template-rows: auto;
+    margin: 0;
+  }
+
+  .shop-panel { padding-right: 0; }
+}
+
+.shop-header,
+.shop-footer {
+  flex: 0 1 100%;
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+
+@media (min-width: 421px) {
+  .sb-nav { top: calc(50% - 4em); }
+}
+
+@media (max-width: 420px) {
+  .main,
+  .toc-page {
+    font-size: 1.75em;
+    width: 90%;
+  }
+
+  .main li,
+  .toc-page li {
+    padding-bottom: 8px;
+  }
+
+  .sketchbooks {
+    font-size: 1.75em;
+    width: 94%;
+  }
+
+  .sketchbooks h1 {
+    margin-bottom: 26px;
+    margin-top: 20px;
+  }
+
+  .sketchbook-grid {
+    grid-gap: 9px;
+    grid-template-columns: repeat(auto-fill, 12%);
+  }
+
+  .sketchbook-page-container {
+    width: 100%;
+  }
+
+  .sketchbook-page-container .global-nav {
+    margin-left: 1em;
+  }
+
+  .sketchbook-page h2 {
+    margin-left: 1em;
+  }
+
+  .sb-nav {
+    bottom: .25em;
+    font-size: 1em;
+    line-height: 26px;
+    right: 1em;
+  }
+
+  .toc-page h1 {
+    margin-top: .5em;
+    padding: 0;
+    text-align: left;
+  }
+
+  .toc-page nav,
+  .toc-page .other-stuff {
+    width: 100%;
+  }
+
+  .toc-page ul {
+    margin-left: 0;
+    padding-left: 0;
+  }
 }
