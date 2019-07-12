@@ -1,4 +1,10 @@
-body { font-size: 16px; }
+html { font: 1em/1.5 helvetica, sans-serif; }
+
+body {
+  font-feature-settings: 'kern';
+  font-size: 1rem;
+  text-rendering: optimizeLegibility;
+}
 
 h1, h2, h3, h4, h5 { font-family: sans-serif; }
 
@@ -87,7 +93,7 @@ table .date {
 }
 
 .toc-page nav {
-  width: 8.5em;
+  width: 9em;
 }
 
 .toc-page a:hover,
@@ -105,7 +111,7 @@ table .date {
 }
 
 .toc-page .other-stuff  {
-  width: 15em;
+  width: 16.5em;
 }
 
 .sketchbooks {
@@ -178,7 +184,7 @@ table .date {
     height: 100vh;
 }
 
-/* Frpntpage archive */
+/* Frontpage archive */
 .frontpage-archive { margin: 0; }
 
 .frontpage-archive .global-nav {
@@ -383,6 +389,16 @@ table .date {
 
 @media (min-width: 421px) {
   .sb-nav { top: calc(50% - 4em); }
+}
+
+@media (min-width: 421px) and (max-width: 740px) {
+  .sketchbook-page-container {
+    width: 90%;
+  }
+
+  .sketchbook-page {
+    width: 66%;
+  }
 }
 
 @media (max-width: 420px) {
